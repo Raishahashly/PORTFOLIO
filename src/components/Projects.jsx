@@ -41,6 +41,15 @@ const Projects = () => {
       badge: 'Team: JAGuaR (Hackathon Build)'
     },
     {
+      title: 'PachApp',
+      type: 'Waste Recycling Reward System',
+      description: 'A full-stack mobile app that incentivises household waste recycling. Green Army workers collect waste, verify it via Google Vertex AI (Gemini 2.0 Flash), and assign reward points. Users redeem points through a QR-based system. Built with React Native (Expo), FastAPI, MongoDB, and JWT auth.',
+      link: null,
+      github: 'https://github.com/Raishahashly/PACHAPP.git',
+      color: '#22c55e',
+      badge: 'AI + Mobile'
+    },
+    {
       title: 'Nee Ente, Njaan Ninte',
       type: 'Animal Matrimony',
       description: 'A fun-loving animal matrimony app for Useless Projects 2.0. Bringing your furry friends together for a lifetime of happiness!',
