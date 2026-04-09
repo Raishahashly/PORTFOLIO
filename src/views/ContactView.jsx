@@ -15,7 +15,7 @@ const ContactView = () => {
       <h2 className="section-header">Contact</h2>
       
       <p style={{ fontSize: '1.1rem', marginBottom: '3rem', maxWidth: '600px' }}>
-        I'm currently looking for new opportunities as a Software Engineer. 
+        I'm currently looking for new opportunities as a {PERSONAL_INFO.role}. 
         Whether you have a question or just want to say hi, I'll try my best to get back to you!
       </p>
 

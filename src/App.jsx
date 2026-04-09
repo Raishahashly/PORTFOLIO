@@ -73,7 +73,7 @@ function App() {
                 letterSpacing: '0.1em'
               }}
             >
-              SOFTWARE ENGINEER
+              {PERSONAL_INFO.role.toUpperCase()}
             </motion.div>
           </motion.div>
         )}
