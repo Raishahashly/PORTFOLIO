@@ -60,7 +60,7 @@ function App() {
               transition={{ delay: 0.3 }}
               style={{ fontSize: '2.5rem', fontWeight: 700 }}
             >
-              <img src="/favicon.png" alt="R Logo" style={{ width: '250px', height: 'auto', display: 'block', margin: '0 auto' }} />
+              Raisha Hashly
             </motion.h1>
             <motion.div
               initial={{ opacity: 0 }}
