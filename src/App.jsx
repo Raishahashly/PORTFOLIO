@@ -82,8 +82,8 @@ function App() {
       <div className="app-container">
         {/* Navigation Sidebar */}
         <aside className="sidebar">
-          <div className="sidebar-header" style={{ textAlign: 'center' }}>
-            <img src="/favicon.png" alt="R Logo" style={{ width: '120px', height: 'auto', display: 'block', margin: '0 auto 1rem' }} />
+          <div className="sidebar-header">
+            <h1 className="sidebar-name">{PERSONAL_INFO.name}</h1>
             <div className="sidebar-role">{PERSONAL_INFO.role}</div>
           </div>
 
