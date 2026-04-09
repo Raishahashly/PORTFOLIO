@@ -1,59 +1,136 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { PERSONAL_INFO, RESUME_LINK } from './data';
+import { FileText } from 'lucide-react';
 import './index.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
+
+// Views
+import ProjectsView from './views/ProjectsView';
+import ExperienceView from './views/ExperienceView';
+import AboutView from './views/AboutView';
+import ContactView from './views/ContactView';
+
+const VIEWS = {
+  PROJECTS: 'Projects',
+  EXPERIENCE: 'Experience',
+  ABOUT: 'About',
+  CONTACT: 'Contact',
+};
 
 function App() {
-  const cursorRef = useRef(null);
+  const [activeView, setActiveView] = useState(VIEWS.PROJECTS);
+  const [showIntro, setShowIntro] = useState(true);
 
+  // Intro Sequence Timer
   useEffect(() => {
-    const onMove = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${e.clientX}px`;
-        cursorRef.current.style.top = `${e.clientY}px`;
-      }
-    };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 2500); // 2.5 seconds intro
+    return () => clearTimeout(timer);
   }, []);
+
+  const renderView = () => {
+    switch (activeView) {
+      case VIEWS.PROJECTS:
+        return <ProjectsView key="projects" />;
+      case VIEWS.EXPERIENCE:
+        return <ExperienceView key="experience" />;
+      case VIEWS.ABOUT:
+        return <AboutView key="about" />;
+      case VIEWS.CONTACT:
+        return <ContactView key="contact" />;
+      default:
+        return <ProjectsView key="projects" />;
+    }
+  };
 
   return (
     <>
-      {/* Cursor glow — hidden on touch devices */}
-      <div ref={cursorRef} className="cursor-glow" />
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            className="intro-overlay"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              style={{ fontSize: '2.5rem', fontWeight: 700 }}
+            >
+              Raisha Hashly
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              style={{ 
+                fontFamily: 'monospace', 
+                color: 'var(--text-muted)',
+                marginTop: '0.5rem',
+                letterSpacing: '0.1em'
+              }}
+            >
+              SOFTWARE ENGINEER
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Animated background */}
-      <div className="mesh-background">
-        <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div className="orb orb-3" />
+      <div className="app-container">
+        {/* Navigation Sidebar */}
+        <aside className="sidebar">
+          <div className="sidebar-header">
+            <h1 className="sidebar-name">{PERSONAL_INFO.name}</h1>
+            <div className="sidebar-role">{PERSONAL_INFO.role}</div>
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="nav-menu">
+            {Object.values(VIEWS).map((view) => (
+              <button
+                key={view}
+                className={`nav-item ${activeView === view ? 'active' : ''}`}
+                onClick={() => setActiveView(view)}
+                style={{ textAlign: 'left', background: 'none', border: 'none', padding: '0.4rem 0', fontFamily: 'inherit', fontSize: '1rem', cursor: 'pointer' }}
+              >
+                {view}
+              </button>
+            ))}
+          </nav>
+
+          <div className="sidebar-footer">
+            <a href={RESUME_LINK} target="_blank" rel="noreferrer" className="resume-btn">
+              <FileText size={16} /> Resume
+            </a>
+          </div>
+        </aside>
+
+        {/* Mobile Horizontal Nav (Displayed only on small screens via CSS) */}
+        <nav className="mobile-nav">
+          {Object.values(VIEWS).map((view) => (
+            <button
+              key={view}
+              className={`nav-item ${activeView === view ? 'active' : ''}`}
+              onClick={() => setActiveView(view)}
+              style={{ textAlign: 'left', background: 'none', border: 'none', fontFamily: 'inherit', fontSize: '0.9rem', cursor: 'pointer', whiteSpace: 'nowrap' }}
+            >
+              {view}
+            </button>
+          ))}
+        </nav>
+
+        {/* Main Content Pane */}
+        <main className="main-content">
+          <div className="content-scroll-container">
+            <AnimatePresence mode="wait">
+              {renderView()}
+            </AnimatePresence>
+          </div>
+        </main>
       </div>
-
-      <Navbar />
-
-      <main>
-        <Hero />
-
-        {/* Dividers between sections */}
-        <div className="divider" />
-        <About />
-        <div className="divider" />
-        <Skills />
-        <div className="divider" />
-        <Experience />
-        <div className="divider" />
-        <Projects />
-        <div className="divider" />
-        <Achievements />
-        <div className="divider" />
-        <Contact />
-      </main>
     </>
   );
 }
