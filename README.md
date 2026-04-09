@@ -1,74 +1,67 @@
-# 🌐 Raisha Hashly – Developer Portfolio
+# 🖥️ Raisha Hashly – Developer Portfolio
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Portfolio-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://resplendent-marshmallow-866921.netlify.app/)
 
 ![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![CSS](https://img.shields.io/badge/Styling-CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![CSS](https://img.shields.io/badge/Styling-Vanilla%20CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Animation-Framer%20Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-This is my personal developer portfolio website built to showcase my skills, projects, and experience in web development.
+This is my professional developer portfolio designed to showcase my skills, projects, and progression as a **Python and Full Stack Developer**.
 
-The portfolio highlights my work through an interactive and visually appealing interface, allowing visitors to explore my projects, learn about my background, and get in touch with me.
+The portfolio operates as a responsive, minimalist, interactive **Dashboard**, doing away with long scrolling pages. Content is loaded smoothly using `framer-motion` into a centralized view, prioritizing code and technical impact over flashy animations.
 
 ---
 
 ## 🎯 Purpose
 
-- To present my projects professionally  
-- To demonstrate my frontend development skills  
-- To create an online presence for career opportunities  
-- To provide an easy way for recruiters to connect with me  
+- To present my projects professionally and analytically.
+- To demonstrate functional frontend architecture and React state-management.
+- To provide an easy, distraction-free environment for recruiters to evaluate my technical capacity.
 
 ---
 
 ## ✨ Key Features
 
-- 📱 Fully responsive design  
-- 🎨 Modern and clean UI  
-- 🎬 Smooth animations using Framer Motion  
-- 🧑‍💻 About Me section  
-- 🛠️ Skills showcase  
-- 💼 Projects with live demo links  
-- 📬 Contact section  
-
----
-
-## 🧩 Sections Included
-
-- **Hero Section** – Introduction and quick overview  
-- **About Section** – Background and personal details  
-- **Skills Section** – Technologies and tools  
-- **Projects Section** – Portfolio of work with demo links  
-- **Contact Section** – Ways to reach me  
+- **Dashboard Architecture:** Replaced traditional scrolling with state-driven view swapping.
+- **Minimalist UI:** Pure Vanilla CSS utilizing Google's `Inter` font for maximum readability and a premium dark mode aesthetic.
+- **Dynamic Content:** Projects, Experience, About, and Contact pages switch seamlessly without browser reloading.
+- **Resume Integation:** Instant access to my comprehensive resume via the navigation menu.
 
 ---
 
 ## ⚙️ Technology Stack
 
-### Frontend
-- React.js  
-- Vite  
-
-### Styling
-- CSS  
-
-### Animations
-- Framer Motion  
+- **Framework:** React 19 + Vite
+- **Styling:** Vanilla CSS (CSS Variables for Theming)
+- **Animation:** Framer Motion (Page Transitions & Overlays)
+- **Icons:** Lucide React & React Icons
 
 ---
 
-## 🚀 How It Works
+## 🚀 Running Locally
 
-1. User visits the portfolio  
-2. Explores different sections (About, Skills, Projects)  
-3. Views project demos via live links  
-4. Contacts through the contact section  
+To spin up this portfolio on your local machine:
 
----
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Raishahashly/PORTFOLIO.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd PORTFOLIO
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
 
-## 📂 Project Structure
+*Then open your browser to `http://localhost:5173/`.*
